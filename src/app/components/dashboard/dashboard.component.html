@@ -1,0 +1,30 @@
+<div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+      </a>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="#" class="nav-link px-2 link-secondary">Incio</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Caracteristicas</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Precio</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Nosotros</a></li>
+      </ul>
+
+      <div class="col-md-3 text-end">
+        <button type="button" (click)="logOut()" class="btn btn-outline-primary me-2">LogOut</button>
+      </div>
+    </header>
+    <section *ngIf="auth.user$ | async as user" class="py-5 text-center container">
+        <div class="row py-lg-5">
+          <div class="col-lg-6 col-md-8 mx-auto">
+              <img [src]="user.picture" alt="" class="img-thumbnail" height="50px">
+              <p>{{ user.given_name }}</p>
+              <p>{{ user.family_name }}</p>
+              <p>{{ user.email }}</p>
+            <p class="lead text-muted"> {{ user | json }}</p>
+          </div>
+        </div>
+      </section>
+  </div>
